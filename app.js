@@ -8,7 +8,7 @@ this.a4=parseInt(localStorage.getItem('a4'))||440
 this.$a4.innerHTML=this.a4}
 Application.prototype.start=function(){const self=this
 this.tuner.onNoteDetected=function(note){if(self.notes.isAutoMode){if(self.lastNote===note.name){self.update(note)}else{self.lastNote=note.name}}}
-swal.fire('Allow indonesiachord.com to access your microphone').then(function(){self.tuner.init()
+swal.fire('Allow guitar tuner to access your microphone').then(function(){self.tuner.init()
 self.frequencyData=new Uint8Array(self.tuner.analyser.frequencyBinCount)})
 this.$a4.addEventListener('click',function(){swal.fire({input:'number',inputValue:self.a4,}).then(function({value:a4}){if(!parseInt(a4)||a4===self.a4){return}
 self.a4=a4
