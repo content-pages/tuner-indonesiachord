@@ -20,7 +20,7 @@ Tuner.prototype.init=function(){this.audioContext=new window.AudioContext()
 this.analyser=this.audioContext.createAnalyser()
 this.scriptProcessor=this.audioContext.createScriptProcessor(this.bufferSize,1,1)
 const self=this
-Aubio().then(function(aubio){self.pitchDetector=new aubio.Pitch('default',self.bufferSize,1,self.audioContext.sampleRate)
+aubio().then(function(aubio){self.pitchDetector=new aubio.Pitch('default',self.bufferSize,1,self.audioContext.sampleRate)
 self.startRecord()})}
 Tuner.prototype.getNote=function(frequency){const note=12*(Math.log(frequency/this.middleA)/Math.log(2))
 return Math.round(note)+this.semitone}
